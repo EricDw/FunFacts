@@ -2,6 +2,7 @@ package com.publicmethod.eric.funfacts.Ui;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -19,6 +20,7 @@ public class FunFactsActivity extends ActionBarActivity {
 //                This gives the system something to assign preventing a crash
 
 //                Declare all of our class variables
+    public  static  final String TAG = FunFactsActivity.class.getSimpleName();
 
     private FactBook mFactBook = new FactBook();
     private ColorWheel mColorWheel = new ColorWheel();
@@ -38,11 +40,11 @@ public class FunFactsActivity extends ActionBarActivity {
 
         factLabel.setText("");
 
-        showFactButton.setOnClickListener(new View.OnClickListener() {
+        View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-//                Update the label with our dynamic fact from our fact book
+//                Update the label with our dynamic fact from FactBook
 //                Do the same thing with the background color from ColorWheel
 
                 int color = mColorWheel.getColor();
@@ -50,7 +52,12 @@ public class FunFactsActivity extends ActionBarActivity {
                 mRelativeLayout.setBackgroundColor(color);
                 factLabel.setText(fact);
                 showFactButton.setTextColor(color);
+
             }
-        });
+        };
+        showFactButton.setOnClickListener(listener);
+        Log.d(TAG,"Yay our activity was created!");
+//        Toast.makeText(getApplicationContext(), "Yay our activity was created!", Toast.LENGTH_LONG).show();
+
     }
 }
