@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
 
     tools:context=".FunFactsActivity"
+    android:id="@+id/factLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -22,7 +23,7 @@
 
     <TextView
         android:id="@+id/factTextView"
-        android:text="Ants stretch when they wake up on the morning."
+        android:text=""
         android:textSize="24sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,6 +41,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@android:color/white"
-        />
+        android:textColor="#ff51b46d" />
 
 </RelativeLayout>
